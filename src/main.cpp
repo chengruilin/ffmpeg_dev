@@ -5,7 +5,7 @@
 
 
 int video_frame_to_jpeg() {
-    char* videoPath = "/home/chengrui/Documents/code/ffmpeg-dev/videos/test.mp4";
+    char* videoPath = "../videos/test.mp4";
 
     VideoImgHelper imgHelper = VideoImgHelper(videoPath);
 
@@ -13,10 +13,10 @@ int video_frame_to_jpeg() {
     if (ret > 0) {
         imgHelper.print_video_info();
         AVFrame *frame = imgHelper.get_video_first_frame();
-        imgHelper.frame_to_img_file(frame, AV_CODEC_ID_MJPEG, "/home/chengrui/Documents/code/ffmpeg-dev/videos/test.jpeg");
+        imgHelper.frame_to_img_file(frame, AV_CODEC_ID_MJPEG, "../videos/test.jpeg");
 
         AVFrame *frame2 = imgHelper.get_video_frame_by_index(100);
-        imgHelper.frame_to_img_file(frame2, AV_CODEC_ID_MJPEG, "/home/chengrui/Documents/code/ffmpeg-dev/videos/test2.jpeg");
+        imgHelper.frame_to_img_file(frame2, AV_CODEC_ID_MJPEG, "../videos/test2.jpeg");
     }
     return 0;
 }
@@ -33,7 +33,7 @@ int http_create_client() {
 
 int test_mmap() {
     MMapUtils mmapUtils = MMapUtils();
-    mmapUtils.wirte_to_mmap("/home/chengrui/Documents/code/ffmpeg-dev/test/test.txt", "hello world!");
+    mmapUtils.wirte_to_mmap("../test/test.txt", "hello world!");
     return 0;
 }
 
